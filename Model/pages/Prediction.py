@@ -5,8 +5,23 @@ from sklearn.preprocessing import LabelEncoder
 
 # Load the trained model and encoder
 import os
-model_path = os.path.abspath('../Model/ChurnClassifier.pkl')
+
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct paths relative to the script directory
+model_path = os.path.join(script_dir, '../ChurnClassifier.pkl')
+encoder_path = os.path.join(script_dir, '../LabelEncoder.pkl')
+
+# Load model and encoder
 model = joblib.load(model_path)
+encoder = joblib.load(encoder_path)
+
+
+# Load the trained model and encoder
+# import os
+# model_path = os.path.abspath('../Model/ChurnClassifier.pkl')
+# model = joblib.load(model_path)
 
 # model = joblib.load('Model\ChurnClassifier.pkl')
 
@@ -41,8 +56,8 @@ cities = [
 ]
 
 # Fit the encoder here
-encoder_path = os.path.abspath('../Model/LabelEncoder.pkl')
-encoder = joblib.load(encoder_path)
+# encoder_path = os.path.abspath('../Model/LabelEncoder.pkl')
+# encoder = joblib.load(encoder_path)
 # encoder = joblib.load('Model\LabelEncoder.pkl') 
 encoder.fit(cities)
 
